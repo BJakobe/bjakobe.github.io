@@ -54,7 +54,6 @@
 			celsius = toCelsius(tempdata);	
 			lightmeter = parseFloat(lightdata);
 			document.getElementById("lightvalue").innerHTML = lightdata;
-			document.getElementById("lightmeter").innerHTML = lightmeter;
 			document.getElementById("temperaturevalue").innerHTML = celsius;
 			document.getElementById("humidityvalue").innerHTML = dht;	
 		}
@@ -77,7 +76,7 @@
 		if(cpf){
 			//cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
 			if (lightmeter<=100){
-				cpf.setChainableLed("0,255,255,255;");
+				cpf.setChainableLed("0, 255, 255, 255;");
 			}
 		}
 		
