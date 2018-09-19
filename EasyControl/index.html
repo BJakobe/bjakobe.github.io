@@ -38,21 +38,19 @@
 	var lightdata;
 	var tempdata;
 	var celsius;
-	var lightmeter;
 	setup();
 	// Analog
 	function loop() {
 		if(cpf){
 			dht = cpf.get("DHT11","d2","dht11humi")
-			lightdata = cpf.get("light sensor");
+			lightdata = parseFloat(cpf.get("light sensor"));
 			tempdata = cpf.get("temperature sensor");
 			celsius = toCelsius(tempdata);	
-			lightmeter = parseFloat(lightdata);
 			document.getElementById("lightvalue").innerHTML = lightdata;
 			document.getElementById("temperaturevalue").innerHTML = celsius;
 			document.getElementById("humidityvalue").innerHTML = dht;	
 			
-			if (lightmeter<=50){
+			if (lightdata<=50){
 				cpf.setChainableLed("0, 255, 255, 255;");
 			}
 			else{
