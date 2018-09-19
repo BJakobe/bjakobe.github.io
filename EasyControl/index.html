@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
 <title>Easy Control</title>
 <meta charset="utf-8">
@@ -86,6 +87,14 @@
 		if(cpf)
 			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1],["setPinMode", "digital", 2, "DHT11"]'); 
 			//document.getElementById("demo").innerHTML += ret + "<br>";
+	}
+	
+	//turn on led according to light
+	function lightup(){
+		var lightmeter = parseFloat(lightdata);
+		if (lightmeter<=100){
+			cpf.setChainableLed("0,255,255,255;");
+		}
 	}
 	
 </script>
