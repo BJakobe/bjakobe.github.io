@@ -59,7 +59,7 @@
             function loop() {
                 if(cpf){
                     dust = cpf.get("d8");
-                    pm10 = cpf.get("d4");
+                    //pm10 = cpf.get("d4");
                     dht = cpf.get("DHT11","d2","dht11humi")
                     lightdata = parseFloat(cpf.get("light sensor"));
                     tempdata = cpf.get("temperature sensor");
