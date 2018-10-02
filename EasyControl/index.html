@@ -57,7 +57,7 @@
 			document.getElementById("temperaturevalue").innerHTML = celsius;
 			document.getElementById("humidityvalue").innerHTML = dht;	
             
-            dust = parseFloat(dust);
+            //dust = parseFloat(dust);
             //pm2.5
             dust = -0.000 * Math.pow(dust, 2) + 0.260 * dust - 56.84;
             document.getElementById("dust").innerHTML = dust;
