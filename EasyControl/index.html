@@ -48,7 +48,7 @@
 	// Analog
 	function loop() {
 		if(cpf){
-            dust = cpf.get("8");
+            dust = cpf.get("d8");
 			dht = cpf.get("DHT11","d2","dht11humi")
 			lightdata = parseFloat(cpf.get("light sensor"));
 			tempdata = cpf.get("temperature sensor");
