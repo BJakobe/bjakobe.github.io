@@ -33,7 +33,7 @@
                         <img class="analogsensor" src="img/Air.png" />
                         <span class="analogvalue" id="dust">none</span>
                     </div>
-                    
+
                     <div class="analogclass">
                         MQ7:
                         <span class="analogvalue" id="mq7">none</span>
@@ -56,7 +56,7 @@
             function loop() {
                 if(cpf){
                     dust = cpf.get("d8");
-                    mq7 = cpf.get("d3");
+                    mq7 = cpf.get("d12");
                     //pm10 = cpf.get("d4");
                     dht = cpf.get("DHT11","d2","dht11humi")
 
@@ -67,7 +67,7 @@
                     document.getElementById("lightvalue").innerHTML = lightdata;
                     document.getElementById("temperaturevalue").innerHTML = celsius;
                     document.getElementById("humidityvalue").innerHTML = dht;	
-                    
+
                     document.getElementById("mq7").innerHTML = mq7;
 
                     //dust = parseFloat(dust);
@@ -76,20 +76,6 @@
                     //pm10 = ((pm10*0.0283168/100) *  (0.08205*20)/0.01))/1000;
                     document.getElementById("dust").innerHTML = converted;
                     //document.getElementById("pm10").innerHTML = pm10;
-
-                    if (lightdata<=50){
-                        cpf.setChainableLed("0, 255, 255, 255;");
-                    }
-                    else if (lightdata>50){
-                        cpf.setChainableLed("0, 0, 0, 0;");
-                    }
-
-                    if (lightdata>=600){
-                        cpf.request('["tone_play", 5, 120, 100]');
-                    }
-                    //			else{
-                    //				cpf.request('["tone_play", 5, 120, 100]');
-                    //			}
                 }
                 setTimeout(loop, 1000);
             }
@@ -128,7 +114,7 @@
                     cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1],["setPinMode", "digital", 2, "DHT11"],["setPinMode","digital",5,"TONE"]'); 
                 //dust sensor
                 cpf.setPinMode('["setPinMode", "digital", 8, "DUST"], ["setPinMode", "digital", 4, "INPUT"]');
-                cpf.setPinMode('["setPinMode", "digital", 3, "INPUT"]')
+                cpf.setPinMode('["setPinMode", "digital", 12, "INPUT"]')
 
                 //document.getElementById("demo").innerHTML += ret + "<br>";
             }
