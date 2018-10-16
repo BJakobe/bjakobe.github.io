@@ -56,7 +56,7 @@
             function loop() {
                 if(cpf){
                     //dust = cpf.get("d8");
-                    mq7 = cpf.get("d8");
+                    mq7 = cpf.get("d12");
                     //pm10 = cpf.get("d4");
                     dht = cpf.get("DHT11","d2","dht11humi")
 
@@ -113,8 +113,8 @@
                 if(cpf)
                     cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1],["setPinMode", "digital", 2, "DHT11"],["setPinMode","digital",5,"TONE"]'); 
                 //dust sensor
-                cpf.setPinMode('["setPinMode", "digital", 12, "DUST"], ["setPinMode", "digital", 4, "INPUT"]');
-                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 8, "INPUT"]')
+                cpf.setPinMode('["setPinMode", "digital", 8, "DUST"], ["setPinMode", "digital", 4, "INPUT"]');
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 12, "INPUT"]')
 
                 //document.getElementById("demo").innerHTML += ret + "<br>";
             }
