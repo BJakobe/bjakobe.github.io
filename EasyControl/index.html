@@ -1,49 +1,52 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Easy Control</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="main.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<head>
+<title>Easy Control</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    </head>
-    <body>
-        <font id="title">TEST</font><p><br>
+</head>
+<body>
+<font id="title">Easy Control</font><p><br>
 
-        <div id="content" class="row">
-            <div class="col-sm-12  col-xs-12">
-                <div class="analogclass">
-                    MQ7:
-                    <span class="analogvalue" id="mq7">none</span>
-                </div>
-            </div>
-        </div>
+<div id="content" class="row">
+	<div class="col-sm-12  col-xs-12">
+		<div id="analog" class="col-sm-6 col-xs-12">
+			<div class="analogclass">
+                
+				<span class="analogvalue" id="gasvalue">none</span><br>
+			</div>
+			<p>
 
-        <script>
+		</div>
 
-           var mq7;
+	</div>
+</div>
 
-            setup();
-            // Analog
-            function loop() {
-                if(cpf){
+<script>
+	
+	var gasdata;
+	setup();
+	function loop() {
+		if(cpf){
+			gasdata = cpf.get("a0");
+			document.getElementById("gasvalue").innerHTML = gasdata;
+		}
+		setTimeout(loop, 1000);
+	}
+	loop();
+	
 
-                    mq7 = cpf.get("d12");	
-                    document.getElementById("mq7").innerHTML = mq7;
-                }
-                setTimeout(loop, 1000);
-            }
-            loop();
-
-
-            // cpf setup
-            function setup(){
-                if(cpf)
-                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 12, "INPUT"]')
-
-            }
-
-        </script>
-    </body>
+	
+	
+	// cpf setup
+	function setup(){
+		if(cpf)
+			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"]');
+			//document.getElementById("demo").innerHTML += ret + "<br>";
+	}
+	
+</script>
+</body>
 </html>
