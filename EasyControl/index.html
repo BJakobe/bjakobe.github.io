@@ -13,110 +13,35 @@
 
         <div id="content" class="row">
             <div class="col-sm-12  col-xs-12">
-                <div id="analog" class="col-sm-6 col-xs-12">
-                    <div class="analogclass">
-                        <img class="analogsensor" src="img/light.png" />
-                        <span class="analogvalue" id="lightvalue">none</span><br>
-                    </div>
-                    <p>
-                    <div class="analogclass">
-                        <img class="analogsensor" src="img/temp.png" />
-                        <span class="analogvalue" id="temperaturevalue">none</span>
-                    </div>
-                    <p>
-                    <div class="analogclass">
-                        <img class="analogsensor" src="img/humidity.png" />
-                        <span class="analogvalue" id="humidityvalue">none</span>
-                    </div>
-                    <p>
-                    <div class="analogclass">
-                        <img class="analogsensor" src="img/Air.png" />
-                        <span class="analogvalue" id="dust">none</span>
-                    </div>
-
-                    <div class="analogclass">
-                        MQ7:
-                        <span class="analogvalue" id="mq7">none</span>
-                    </div>
+                <div class="analogclass">
+                    MQ7:
+                    <span class="analogvalue" id="mq7">none</span>
                 </div>
             </div>
         </div>
 
         <script>
 
-            var dht;
-            var lightdata;
-            var tempdata;
-            var celsius;
-            var dust;
-            var converted;
-            //var pm10;
+           var mq7;
+
             setup();
             // Analog
             function loop() {
                 if(cpf){
-                    //dust = cpf.get("d8");
-                    mq7 = cpf.get("d12");
-                    //pm10 = cpf.get("d4");
-                    dht = cpf.get("DHT11","d2","dht11humi")
 
-                    lightdata = parseFloat(cpf.get("light sensor"));
-                    tempdata = cpf.get("temperature sensor");
-                    celsius = toCelsius(tempdata);	
-
-                    document.getElementById("lightvalue").innerHTML = lightdata;
-                    document.getElementById("temperaturevalue").innerHTML = celsius;
-                    document.getElementById("humidityvalue").innerHTML = dht;	
-
+                    mq7 = cpf.get("d12");	
                     document.getElementById("mq7").innerHTML = mq7;
-
-                    //dust = parseFloat(dust);
-                    //pm2.5
-                    converted = -0.000 * Math.pow(dust, 2) + 0.260 * dust - 56.84;
-                    //pm10 = ((pm10*0.0283168/100) *  (0.08205*20)/0.01))/1000;
-                    document.getElementById("dust").innerHTML = converted;
-                    //document.getElementById("pm10").innerHTML = pm10;
                 }
                 setTimeout(loop, 1000);
             }
             loop();
 
-            // RGB
-            function changeColor() {
-                var Rled = document.getElementById("rled").value;
-                var Gled = document.getElementById("gled").value;
-                var Bled = document.getElementById("bled").value;
-
-                document.getElementById("redvalue").innerHTML = Rled;
-                document.getElementById("greenvalue").innerHTML = Gled;
-                document.getElementById("bluevalue").innerHTML = Bled;
-
-                document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
-
-
-                //		if(cpf){
-                //			//cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
-                //		}
-
-            }
-
-            // Temperature
-            function toCelsius(value) {
-                var resistance = parseFloat((1023-value) * 10000 / value);
-                var temperature = 1 / (Math.log(resistance / 10000) / 3975+1 / 298.15) - 273.15;
-
-                return temperature.toFixed(2);
-            }
 
             // cpf setup
             function setup(){
                 if(cpf)
-                    cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1],["setPinMode", "digital", 2, "DHT11"],["setPinMode","digital",5,"TONE"]'); 
-                //dust sensor
-                cpf.setPinMode('["setPinMode", "digital", 8, "DUST"], ["setPinMode", "digital", 4, "INPUT"]');
                 cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 12, "INPUT"]')
 
-                //document.getElementById("demo").innerHTML += ret + "<br>";
             }
 
         </script>
