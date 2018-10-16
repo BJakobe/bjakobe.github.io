@@ -33,6 +33,11 @@
                         <img class="analogsensor" src="img/Air.png" />
                         <span class="analogvalue" id="dust">none</span>
                     </div>
+                    
+                    <div class="analogclass">
+                        MQ7:
+                        <span class="analogvalue" id="mq7">none</span>
+                    </div>
                     <!--
 <p>
 <div class="analogclass">
@@ -59,6 +64,7 @@
             function loop() {
                 if(cpf){
                     dust = cpf.get("d8");
+                    mq7 = cpf.get("d7");
                     //pm10 = cpf.get("d4");
                     dht = cpf.get("DHT11","d2","dht11humi")
 
@@ -69,6 +75,8 @@
                     document.getElementById("lightvalue").innerHTML = lightdata;
                     document.getElementById("temperaturevalue").innerHTML = celsius;
                     document.getElementById("humidityvalue").innerHTML = dht;	
+                    
+                    document.getElementById("mq7").innerHTML = mq7;
 
                     //dust = parseFloat(dust);
                     //pm2.5
@@ -128,6 +136,7 @@
                     cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1],["setPinMode", "digital", 2, "DHT11"],["setPinMode","digital",5,"TONE"]'); 
                 //dust sensor
                 cpf.setPinMode('["setPinMode", "digital", 8, "DUST"], ["setPinMode", "digital", 4, "INPUT"]');
+                cpf.setPinMode('["setPinMode", "digital", 7, "INPUT"]')
 
                 //document.getElementById("demo").innerHTML += ret + "<br>";
             }
