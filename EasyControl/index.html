@@ -74,7 +74,7 @@
                     //pm2.5
                     converted = -0.000 * Math.pow(dust, 2) + 0.260 * dust - 56.84;
                     //pm10 = ((pm10*0.0283168/100) *  (0.08205*20)/0.01))/1000;
-                    document.getElementById("dust").innerHTML = dust;
+                    document.getElementById("dust").innerHTML = converted;
                     //document.getElementById("pm10").innerHTML = pm10;
 
                     if (lightdata<=50){
