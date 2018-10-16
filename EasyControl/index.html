@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 <head>
-<title>Easy Control</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="main.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Easy Control</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
 <body>
-<font id="title">Air Quality Monitor</font><p><br>
+    <font id="title">Air Quality Monitor</font><p><br>
 
-<div id="content" class="row">
-	<div class="col-sm-12  col-xs-12">
-		<div id="analog" class="col-sm-6 col-xs-12">
-			<div class="analogclass">
-                MQ7:
-				<span class="analogvalue" id="gasvalue">none</span><br>
-			</div>
-			<p>
+    <div id="content" class="row">
+        <div class="col-sm-12  col-xs-12">
+            <div id="analog" class="col-sm-6 col-xs-12">
 
-		</div>
+                <div class="analogclass">
+                    Temperature:
+                    <span class="analogvalue" id="tempvalue">none</span><br>
+                </div>
+                
+                <div class="analogclass">
+                    Humidity:
+                    <span class="analogvalue" id="humidvalue">none</span><br>
+                </div>
+                
+                <div class="analogclass">
+                    CO:
+                    <span class="analogvalue" id="gasvalue">none</span><br>
+                </div>
+                
+                <div class="analogclass">
+                    PM2.5:
+                    <span class="analogvalue" id="pmvalue">none</span><br>
+                </div>
 
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
 
-<script>
-	
-	var gasdata;
-	setup();
-	function loop() {
-		if(cpf){
-			gasdata = cpf.get("a0");
-			document.getElementById("gasvalue").innerHTML = gasdata;
-		}
-		setTimeout(loop, 1000);
-	}
-	loop();
-	
+    <script>
 
-	
-	
-	// cpf setup
-	function setup(){
-		if(cpf)
-			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"]');
-			//document.getElementById("demo").innerHTML += ret + "<br>";
-	}
-	
-</script>
+        var gasdata;
+        setup();
+        function loop() {
+            if(cpf){
+                gasdata = cpf.get("a0");
+                document.getElementById("gasvalue").innerHTML = gasdata;
+            }
+            setTimeout(loop, 1000);
+        }
+        loop();
+
+
+
+
+        // cpf setup
+        function setup(){
+            if(cpf)
+                cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"]');
+            //document.getElementById("demo").innerHTML += ret + "<br>";
+        }
+
+    </script>
 </body>
 </html>
