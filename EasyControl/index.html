@@ -33,13 +33,13 @@
                         <img class="analogsensor" src="img/Air.png" />
                         <span class="analogvalue" id="dust">none</span>
                     </div>
-<!--
-                    <p>
-                    <div class="analogclass">
-                        <img class="analogsensor" src="img/Air.png" />
-                        <span class="analogvalue" id="pm10">none</span>
-                    </div>
-                    <p>
+                    <!--
+<p>
+<div class="analogclass">
+<img class="analogsensor" src="img/Air.png" />
+<span class="analogvalue" id="pm10">none</span>
+</div>
+<p>
 -->
                 </div>
             </div>
@@ -61,9 +61,11 @@
                     dust = cpf.get("d8");
                     //pm10 = cpf.get("d4");
                     dht = cpf.get("DHT11","d2","dht11humi")
+
                     lightdata = parseFloat(cpf.get("light sensor"));
                     tempdata = cpf.get("temperature sensor");
                     celsius = toCelsius(tempdata);	
+
                     document.getElementById("lightvalue").innerHTML = lightdata;
                     document.getElementById("temperaturevalue").innerHTML = celsius;
                     document.getElementById("humidityvalue").innerHTML = dht;	
@@ -72,7 +74,7 @@
                     //pm2.5
                     converted = -0.000 * Math.pow(dust, 2) + 0.260 * dust - 56.84;
                     //pm10 = ((pm10*0.0283168/100) *  (0.08205*20)/0.01))/1000;
-                    document.getElementById("dust").innerHTML = converted;
+                    document.getElementById("dust").innerHTML = dust;
                     //document.getElementById("pm10").innerHTML = pm10;
 
                     if (lightdata<=50){
