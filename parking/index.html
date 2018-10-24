@@ -26,11 +26,11 @@
                 
                 <div class="analogclass">
                     <h2>LEVEL 2</h2>
-                    <img src="img/green.png" id="p1">C1
-                    <img src="img/green.png" id="p2">C2<br>
-                    <img src="img/green.png" id="p3">D1
-                    <img src="img/green.png" id="p4">D2
-                    <img src="img/green.png" id="p5">D3<p></p><br>
+                    <img src="img/green.png" id="p6">C1
+                    <img src="img/green.png" id="p7">C2
+                    <img src="img/green.png" id="p8">C3<br>
+                    <img src="img/green.png" id="p9">D1
+                    <img src="img/green.png" id="p10">D2<p></p><br>
                 </div><p></p>
 
             </div>
@@ -62,16 +62,68 @@
                     document.getElementById("p1").src="img/green.png";
                 }
                 
-                document.getElementById("p2").innerHTML = park[1];
-                document.getElementById("p3").innerHTML = park[2];
-                document.getElementById("p4").innerHTML = park[3];
-                document.getElementById("p5").innerHTML = park[4];
-                document.getElementById("p6").innerHTML = park[5];
-                document.getElementById("p7").innerHTML = park[6];
-                document.getElementById("p8").innerHTML = park[7];
-                document.getElementById("p9").innerHTML = park[8];
-                document.getElementById("p10").innerHTML = park[9];
+                if(park[1]==0){
+                    document.getElementById("p2").src="img/clear.png";
+                }
+                else{
+                    document.getElementById("p2").src="img/green.png";
+                }
                 
+                if(park[2]==0){
+                    document.getElementById("p3").src="img/clear.png";
+                }
+                else{
+                    document.getElementById("p3").src="img/green.png";
+                }
+                
+                if(park[3]==0){
+                    document.getElementById("p4").src="img/clear.png";
+                }
+                else{
+                    document.getElementById("p4").src="img/green.png";
+                }
+                
+                if(park[4]==0){
+                    document.getElementById("p5").src="img/clear.png";
+                }
+                else{
+                    document.getElementById("p5").src="img/green.png";
+                }
+                
+                if(park[5]==0){
+                    document.getElementById("p6").src="img/clear.png";
+                }
+                else{
+                    document.getElementById("p6").src="img/green.png";
+                }
+                
+                if(park[6]==0){
+                    document.getElementById("p7").src="img/clear.png";
+                }
+                else{
+                    document.getElementById("p7").src="img/green.png";
+                }
+                
+                if(park[7]==0){
+                    document.getElementById("p8").src="img/clear.png";
+                }
+                else{
+                    document.getElementById("p8").src="img/green.png";
+                }
+                
+                if(park[8]==0){
+                    document.getElementById("p9").src="img/clear.png";
+                }
+                else{
+                    document.getElementById("p9").src="img/green.png";
+                }
+                
+                if(park[9]==0){
+                    document.getElementById("p10").src="img/clear.png";
+                }
+                else{
+                    document.getElementById("p10").src="img/green.png";
+                }
                 
             }
             setTimeout(loop, 200);
