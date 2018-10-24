@@ -56,10 +56,10 @@
                 park[9] = cpf.get("d11");
                 
                 if(park[0]==0){
-                    document.getElementById("p1").setAttribute("src", "img/clear.png");
+                    document.getElementById("p1").src="img/clear.png";
                 }
                 else{
-                    document.getElementById("p1").setAttribute("src", "img/green.png");
+                    document.getElementById("p1").src="img/green.png";
                 }
                 
                 document.getElementById("p2").innerHTML = park[1];
@@ -74,7 +74,7 @@
                 
                 
             }
-            setTimeout(loop, 500);
+            setTimeout(loop, 200);
         }
         loop();
 
