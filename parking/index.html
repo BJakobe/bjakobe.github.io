@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+    <title>Parking Spaces</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+    <font id="title">Parking Spaces</font>
+
+    <div id="content" class="row">
+        <div class="col-sm-12  col-xs-12">
+            <div id="analog" class="col-sm-6 col-xs-12">
+
+                <div class="analogclass">
+                    Slot 1:
+                    <span class="analogvalue" id="p1">none</span>
+                </div><p></p>
+                <div class="analogclass">
+                    Slot 2:
+                    <span class="analogvalue" id="p2">none</span>
+                </div><p></p>
+                <div class="analogclass">
+                    Slot 3:
+                    <span class="analogvalue" id="p3">none</span>
+                </div><p></p>
+                <div class="analogclass">
+                    Slot 4:
+                    <span class="analogvalue" id="p4">none</span>
+                </div><p></p>
+                <div class="analogclass">
+                    Slot 5:
+                    <span class="analogvalue" id="p5">none</span>
+                </div><p></p>
+                <div class="analogclass">
+                    Slot 6:
+                    <span class="analogvalue" id="p6">none</span>
+                </div><p></p>
+                <div class="analogclass">
+                    Slot 7:
+                    <span class="analogvalue" id="p7">none</span>
+                </div><p></p>
+                <div class="analogclass">
+                    Slot 8:
+                    <span class="analogvalue" id="p8">none</span>
+                </div><p></p>
+                <div class="analogclass">
+                    Slot 9:
+                    <span class="analogvalue" id="p9">none</span>
+                </div><p></p>
+                <div class="analogclass">
+                    Slot 10:
+                    <span class="analogvalue" id="p10">none</span>
+                </div><p></p>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var park1, park2, park3, park4, park5, park6, park7, park8, park9, park10;
+        
+        setup();
+        function loop() {
+            if(cpf){
+                park1 = cpf.get("d2");
+                park2 = cpf.get("d3");
+                park3 = cpf.get("d4");
+                park4 = cpf.get("d5");
+                park5 = cpf.get("d6");
+                park6 = cpf.get("d7");
+                park7 = cpf.get("d8");
+                park8 = cpf.get("d9");
+                park9 = cpf.get("d10");
+                park10 = cpf.get("d11");
+            
+                if(park1!=0){
+                    park1="Occupied";
+                }
+                else{
+                    park1="Vacant";
+                }
+                
+                document.getElementById("p1").innerHTML = park1;
+                
+            }
+            setTimeout(loop, 1000);
+        }
+        loop();
+
+        // cpf setup
+        function setup(){
+            if(cpf)
+                
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 3, "INPUT"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"], ["setPinMode", "digital", 6, "INPUT"], ["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 8, "INPUT"], ["setPinMode", "digital", 9, "INPUT"], ["setPinMode", "digital", 10, "INPUT"], ["setPinMode", "digital", 11, "INPUT"], ');
+            
+        }
+
+    </script>
+</body>
+</html>

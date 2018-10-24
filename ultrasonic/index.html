@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Parking Spaces</title>
+    <title>Ultrasonic</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
@@ -18,12 +18,12 @@
                     Sensor 1:
                     <span class="analogvalue" id="ultrasonic">none</span>
                 </div><p></p>
-                
-<!--
-                <div class="analogclass">
-                    Sensor 2:
-                    <span class="analogvalue" id="humidvalue">none</span>
-                </div><p></p><br>
+
+                <!--
+<div class="analogclass">
+Sensor 2:
+<span class="analogvalue" id="humidvalue">none</span>
+</div><p></p><br>
 -->
 
             </div>
@@ -31,38 +31,35 @@
     </div>
 
     <script>
-
         var ultrasonic;
-        
+
         setup();
         function loop() {
             if(cpf){
                 ultrasonic = cpf.get("ultrasonic","d7","CM");
-                
+
                 document.getElementById("ultrasonic").innerHTML = ultrasonic;
-                
+
             }
             setTimeout(loop, 1000);
         }
         loop();
-
         // cpf setup
         function setup(){
             if(cpf)
-//                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 6, "OUTPUT"], ["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 9, "OUTPUT"], ["setPinMode", "digital", 4, "INPUT"]');
-                
-                cpf.setPinMode('["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 6, "OUTPUT"]');
-            
-        }
-        
-//        function Sensor(trigPin, echoPin){
-//            
-//            cpf.request('["digitalWrite", trigPin, 0]');
-//            
-//            
-//            
-//        }
+                //                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 6, "OUTPUT"], ["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 9, "OUTPUT"], ["setPinMode", "digital", 4, "INPUT"]');
 
+                cpf.setPinMode('["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 6, "OUTPUT"]');
+
+        }
+
+        //        function Sensor(trigPin, echoPin){
+        //            
+        //            cpf.request('["digitalWrite", trigPin, 0]');
+        //            
+        //            
+        //            
+        //        }
     </script>
 </body>
 </html>
