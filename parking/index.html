@@ -14,46 +14,23 @@
         <div class="col-sm-12  col-xs-12">
             <div id="analog" class="col-sm-6 col-xs-12">
 
+                <br>
                 <div class="analogclass">
-                    <img src="img/clear.png">
-                    <img src="img/green.png">
-                    <span class="analogvalue" id="p1">none</span>
-                </div><p></p>
+                    <h2>LEVEL 1</h2>
+                    <img src="img/green.png" id="p1">A1
+                    <img src="img/green.png" id="p2">A2<br>
+                    <img src="img/green.png" id="p3">B1
+                    <img src="img/green.png" id="p4">B2
+                    <img src="img/green.png" id="p5">B3<p></p><br>
+                </div><p></p><br>
+                
                 <div class="analogclass">
-                    Slot 2:
-                    <span class="analogvalue" id="p2">none</span>
-                </div><p></p>
-                <div class="analogclass">
-                    Slot 3:
-                    <span class="analogvalue" id="p3">none</span>
-                </div><p></p>
-                <div class="analogclass">
-                    Slot 4:
-                    <span class="analogvalue" id="p4">none</span>
-                </div><p></p>
-                <div class="analogclass">
-                    Slot 5:
-                    <span class="analogvalue" id="p5">none</span>
-                </div><p></p>
-                <div class="analogclass">
-                    Slot 6:
-                    <span class="analogvalue" id="p6">none</span>
-                </div><p></p>
-                <div class="analogclass">
-                    Slot 7:
-                    <span class="analogvalue" id="p7">none</span>
-                </div><p></p>
-                <div class="analogclass">
-                    Slot 8:
-                    <span class="analogvalue" id="p8">none</span>
-                </div><p></p>
-                <div class="analogclass">
-                    Slot 9:
-                    <span class="analogvalue" id="p9">none</span>
-                </div><p></p>
-                <div class="analogclass">
-                    <img src="img/greeen.png">
-<!--                    <span class="analogvalue" id="p10">none</span>-->
+                    <h2>LEVEL 2</h2>
+                    <img src="img/green.png" id="p1">C1
+                    <img src="img/green.png" id="p2">C2<br>
+                    <img src="img/green.png" id="p3">D1
+                    <img src="img/green.png" id="p4">D2
+                    <img src="img/green.png" id="p5">D3<p></p><br>
                 </div><p></p>
 
             </div>
@@ -78,7 +55,13 @@
                 park[8] = cpf.get("d10");
                 park[9] = cpf.get("d11");
                 
-                document.getElementById("p1").innerHTML = park[0];
+                if(park[0]==0){
+                    document.getElementById("p1").setAttribute("src", "img/clear.png");
+                }
+                else{
+                    document.getElementById("p1").setAttribute("src", "img/green.png");
+                }
+                
                 document.getElementById("p2").innerHTML = park[1];
                 document.getElementById("p3").innerHTML = park[2];
                 document.getElementById("p4").innerHTML = park[3];

@@ -1,5 +1,6 @@
 img{
-    height: 64px;
+    height: 48px;
+    margin: 5px;
 }
 
 html {
@@ -39,7 +40,7 @@ body{
 	display: block;
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	height: 120px;
+	height: auto;
 	margin: 0 auto;
 }
 
