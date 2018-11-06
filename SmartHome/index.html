@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <title>Ultrasonic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+    <font id="title">Parking Spaces</font>
+
+    <div id="content" class="row">
+        <div class="col-sm-12  col-xs-12">
+            <div id="analog" class="col-sm-6 col-xs-12">
+
+                <div class="analogclass">
+                    Sensor 1:
+                    <span class="analogvalue" id="ultrasonic">none</span>
+                </div><p></p>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var ultrasonic;
+
+        setup();
+        function loop() {
+            if(cpf){
+                //                ultrasonic = cpf.get("ultrasonic","d7","CM");
+                //
+                //                document.getElementById("ultrasonic").innerHTML = ultrasonic;
+
+            }
+            setTimeout(loop, 1000);
+        }
+        loop();
+
+        function setup(){
+            if(cpf)
+
+
+                //cpf.setPinMode('["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 6, "OUTPUT"]');
+                cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2]');
+            cpf.set("grove_rgblcd_clear", 0, 0, 0);
+            cpf.sleep(1000);
+            cpf.set("grove_rgblcd_set_rgb", 211, 25, 78);
+            cpf.sleep(1000);
+            cpf.set("grove_rgblcd_print", 0,0, "hello world");
+        }
+    </script>
+</body>
+</html>
