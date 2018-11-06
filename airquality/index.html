@@ -49,7 +49,6 @@
         var humid;
         var temp;
         var pm25;
-        var pm10;
         
         setup();
         function loop() {
@@ -63,7 +62,6 @@
                 document.getElementById("tempvalue").innerHTML = temp;
                 document.getElementById("humidvalue").innerHTML = humid;
                 document.getElementById("pm25value").innerHTML = pm25;
-                document.getElementById("pm10value").innerHTML = pm10;
                 
             }
             setTimeout(loop, 1000);
@@ -76,8 +74,7 @@
         // cpf setup
         function setup(){
             if(cpf)
-                cpf.pinreset('["resetPin"], ["setPinMode", "digital", 2, "DUST"]');
-                cpf.setPinMode('["setPinMode", "analog", 0, "INPUT"], ["setPinMode", "digital", 4, "DHT22"]');
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "DUST"], ["setPinMode", "analog", 0, "INPUT"], ["setPinMode", "digital", 4, "DHT22"]');
         }
 
     </script>
