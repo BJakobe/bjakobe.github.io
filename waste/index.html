@@ -16,7 +16,13 @@
 
                 <div class="analogclass">
                     Sensor 1:
-                    <span class="analogvalue" id="ultrasonic">none</span>
+                    <span class="analogvalue" id="one">none</span>
+                </div><p></p>
+
+
+                <div class="analogclass">
+                    Sensor 2:
+                    <span class="analogvalue" id="two">none</span>
                 </div><p></p>
 
 
@@ -26,32 +32,48 @@
     </div>
 
     <script>
-        var ultrasonic;
+        var switch1;
+        var switch2;
 
         setup();
         function loop() {
             if(cpf){
-                //                ultrasonic = cpf.get("ultrasonic","d7","CM");
-                //
-                //                document.getElementById("ultrasonic").innerHTML = ultrasonic;
+
+                switch1 = cpf.get("d4");
+                switch2 = cpf.get("d5");
+
+                if(switch1==1){
+                    switch1="open";
+                }
+                else{
+                    switch1="closed";
+                }
+
+                if(switch2==1){
+                    switch2="open";
+                }
+                else{
+                    switch2="closed";
+                }
+
+                document.getElementById("one").innerHTML = switch1;
+                document.getElementById("two").innerHTML = switch2;
+                    //                ultrasonic = cpf.get("ultrasonic","d7","CM");
+                    //
+                    //                document.getElementById("ultrasonic").innerHTML = ultrasonic;
 
             }
-            setTimeout(loop, 1000);
-        }
-        loop();
+                setTimeout(loop, 1000);
+            }
+            loop();
 
-        function setup(){
-            if(cpf)
+            function setup(){
+                if(cpf)
 
 
-                //cpf.setPinMode('["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 6, "OUTPUT"]');
-                cpf.setPinMode('["resetPin"], ["grove_rgblcd_begin", 16, 2]');
-            cpf.set("grove_rgblcd_clear", 0, 0, 0);
-            cpf.sleep(1000);
-            cpf.set("grove_rgblcd_set_rgb", 211, 25, 78);
-            cpf.sleep(1000);
-            cpf.set("grove_rgblcd_print", 0,0, "hello world");
-        }
+                    //cpf.setPinMode('["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 6, "OUTPUT"]');
+                    cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"]');
+            }
     </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Ultrasonic</title>
+    <title>Water Level Monitor</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
@@ -8,72 +8,78 @@
 
 </head>
 <body>
-    <font id="title">Parking Spaces</font>
+    <font id="title">Water Level Monitor</font>
 
     <div id="content" class="row">
         <div class="col-sm-12  col-xs-12">
             <div id="analog" class="col-sm-6 col-xs-12">
 
                 <div class="analogclass">
-                    Sensor 1:
-                    <span class="analogvalue" id="one">none</span>
+                    <img class="analogsensor" src="img/temp.png">
+                    <span class="analogvalue" id="100m">none</span>
                 </div><p></p>
-
-
+                
                 <div class="analogclass">
-                    Sensor 2:
-                    <span class="analogvalue" id="two">none</span>
+                    <img class="analogsensor" src="img/humidity.png">
+                    <span class="analogvalue" id="200m">none</span>
                 </div><p></p>
-
-
+                
+                <div class="analogclass">
+                    <img class="analogsensor" src="img/co.png">
+                    <span class="analogvalue" id="300m">none</span>
+                </div><p></p>
+                
+                <div class="analogclass">
+                    <img class="analogsensor" src="img/pm25.png">
+                    <span class="analogvalue" id="400m">none</span>
+                </div><p></p>
+                
+                <div class="analogclass">
+                    <img class="analogsensor" src="img/pm25.png">
+                    <span class="analogvalue" id="500m">none</span>
+                </div><p></p>
 
             </div>
         </div>
     </div>
 
     <script>
-        var switch1;
-        var switch2;
 
+        var onem;
+        var twom;
+        var threem;
+        var fourm;
+        var fivem;
+        
         setup();
         function loop() {
             if(cpf){
-
-                switch1 = cpf.get("d4");
-                switch2 = cpf.get("d5");
-
-                if(switch1==1){
-                    switch1="open";
-                }
-                else{
-                    switch1="closed";
-                }
-
-                if(switch2==1){
-                    switch2="open";
-                }
-                else{
-                    switch2="closed";
-                }
-
-                document.getElementById("one").innerHTML = switch1;
-                document.getElementById("two").innerHTML = switch2;
-                    //                ultrasonic = cpf.get("ultrasonic","d7","CM");
-                    //
-                    //                document.getElementById("ultrasonic").innerHTML = ultrasonic;
-
+                onem = cpf.get("d2");
+                twom = cpf.get("d3");
+                threem = cpf.get("d4");
+                fourm = cpf.get("d5");
+                fivem = cpf.get("d6");
+                
+                document.getElementById("100m").innerHTML = onem;
+                document.getElementById("200m").innerHTML = twom;
+                document.getElementById("300m").innerHTML = threem;
+                document.getElementById("400m").innerHTML = fourm;
+                document.getElementById("500m").innerHTML = fivem;
+                
             }
-                setTimeout(loop, 1000);
-            }
-            loop();
-
-            function setup(){
-                if(cpf)
+            setTimeout(loop, 1000);
+        }
+        loop();
 
 
-                    //cpf.setPinMode('["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 6, "OUTPUT"]');
-                    cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"]');
-            }
+
+
+        // cpf setup
+        function setup(){
+            if(cpf)
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 3, "INPUT"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"], ["setPinMode", "digital", 46 "INPUT"]');
+        }
+
     </script>
 </body>
 </html>
