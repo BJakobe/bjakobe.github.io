@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Ultrasonic</title>
+    <title>Waste Management</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
@@ -8,20 +8,20 @@
 
 </head>
 <body>
-    <font id="title">Parking Spaces</font>
+    <font id="title">Waste Management System</font>
 
     <div id="content" class="row">
         <div class="col-sm-12  col-xs-12">
             <div id="analog" class="col-sm-6 col-xs-12">
 
                 <div class="analogclass">
-                    Sensor 1:
+                    Trash Bin 1:
                     <span class="analogvalue" id="one">none</span>
                 </div><p></p>
 
 
                 <div class="analogclass">
-                    Sensor 2:
+                    Trash Bin 2:
                     <span class="analogvalue" id="two">none</span>
                 </div><p></p>
 
@@ -34,6 +34,8 @@
     <script>
         var switch1;
         var switch2;
+        var full1;
+        var full2;
 
         setup();
         function loop() {
@@ -43,37 +45,44 @@
                 switch2 = cpf.get("d5");
 
                 if(switch1==1){
-                    switch1="open";
+                    switch1="Bin is OPEN";
                 }
                 else{
-                    switch1="closed";
+                    full1 = cpf.get("d2");
+                    if (full1 == 1){
+                        switch1 = "Bin is not yet full";
+                    }
+                    else{
+                        switch1 = "Bin is FULL";
+                    }
                 }
 
                 if(switch2==1){
-                    switch2="open";
+                    switch2="Bin is OPEN";
                 }
                 else{
-                    switch2="closed";
+                    full2 = cpf.get("d3");
+                    if (full2 == 1){
+                        switch2 = "Bin is not yet full";
+                    }
+                    else{
+                        switch2 = "Bin is FULL";
+                    }
                 }
 
                 document.getElementById("one").innerHTML = switch1;
                 document.getElementById("two").innerHTML = switch2;
-                    //                ultrasonic = cpf.get("ultrasonic","d7","CM");
-                    //
-                    //                document.getElementById("ultrasonic").innerHTML = ultrasonic;
 
             }
-                setTimeout(loop, 1000);
-            }
-            loop();
+            setTimeout(loop, 1000);
+        }
+        loop();
 
-            function setup(){
-                if(cpf)
+        function setup(){
+            if(cpf)
 
-
-                    //cpf.setPinMode('["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 6, "OUTPUT"]');
-                    cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"]');
-            }
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"]');
+        }
     </script>
 </body>
 </html>
