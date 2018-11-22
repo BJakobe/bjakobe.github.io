@@ -13,7 +13,7 @@
     <div id="content" class="row">
         <div class="col-sm-12  col-xs-12">
             <div id="analog" class="col-sm-6 col-xs-12">
-                
+
                 <div class="analogclass">
                     <img class="analogsensor" src="img/temp.png">TIMER: 
                     <span class="analogvalue" id="timer">none</span>
@@ -57,12 +57,12 @@
         function loop() {
 
             if(cpf){
-                cpf.request('["digitalWrite",  4, 0]');
-                cpf.request('["digitalWrite",  5, 1]');
-                cpf.request('["digitalWrite",  8, 0]');
-                cpf.request('["digitalWrite",  9, 1]');
-                cpf.request('["digitalWrite",  12, 0]');
-                cpf.request('["digitalWrite",  13, 1]');
+                cpf.request('["digitalWrite", 4, 0]');
+                cpf.request('["digitalWrite", 5, 1]');
+                cpf.request('["digitalWrite", 8, 0]');
+                cpf.request('["digitalWrite", 9, 1]');
+                cpf.request('["digitalWrite", 12, 0]');
+                cpf.request('["digitalWrite", 13, 1]');
 
                 document.getElementById("left").innerHTML = "STOP";
                 document.getElementById("middle").innerHTML = "STOP";
@@ -97,7 +97,7 @@
 
                     cpf.request('["digitalWrite", 4, 0]');
                     cpf.request('["digitalWrite", 5, 1]');
-                    
+
                     document.getElementById("middle").innerHTML = "STOP";
 
                 }
@@ -131,7 +131,7 @@
 
                     cpf.request('["digitalWrite", 8, 0]');
                     cpf.request('["digitalWrite", 9, 1]');
-                    
+
                     document.getElementById("middle").innerHTML = "STOP";
 
                 }
@@ -165,7 +165,7 @@
 
                     cpf.request('["digitalWrite", 12, 0]');
                     cpf.request('["digitalWrite", 13, 1]');
-                    
+
                     document.getElementById("left").innerHTML = "STOP";
 
                 }
