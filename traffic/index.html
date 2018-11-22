@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<head>
+    <title>Air Quality Monitor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+    <br><h1 id="title">Angeles City<br>Traffic</h1><hr>
+
+    <div id="content" class="row">
+        <div class="col-sm-12  col-xs-12">
+            <div id="analog" class="col-sm-6 col-xs-12">
+                
+                <div class="analogclass">
+                    <img class="analogsensor" src="img/temp.png">TIMER: 
+                    <span class="analogvalue" id="timer">none</span>
+                </div><p></p>
+
+                <div class="analogclass">
+                    <img class="analogsensor" src="img/temp.png">LEFT: 
+                    <span class="analogvalue" id="left">none</span>
+                </div><p></p>
+
+                <div class="analogclass">
+                    <img class="analogsensor" src="img/humidity.png">MIDDLE: 
+                    <span class="analogvalue" id="middle">none</span>
+                </div><p></p>
+
+                <div class="analogclass">
+                    <img class="analogsensor" src="img/co.png">RIGHT: 
+                    <span class="analogvalue" id="right">none</span>
+                </div><p></p>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var middleir1;
+        var middleir2;
+
+        var rightir1;
+        var rightir2;
+
+        var leftir1;
+        var leftir2;
+
+        var timer;
+
+        setup();
+
+        function loop() {
+
+            if(cpf){
+                cpf.request('["digitalWrite",  4, 0]');
+                cpf.request('["digitalWrite",  5, 1]');
+                cpf.request('["digitalWrite",  8, 0]');
+                cpf.request('["digitalWrite",  9, 1]');
+                cpf.request('["digitalWrite",  12, 0]');
+                cpf.request('["digitalWrite",  13, 1]');
+
+                document.getElementById("left").innerHTML = "STOP";
+                document.getElementById("middle").innerHTML = "STOP";
+                document.getElementById("right").innerHTML = "STOP";
+
+                middleir1 = cpf.get("d2");
+
+                if(middleir1 == 0){
+                    cpf.request('["digitalWrite", 4, 1]');
+                    cpf.request('["digitalWrite", 5, 0]');
+
+                    document.getElementById("middle").innerHTML = "GO";
+
+                    middleir2 = cpf.get("d3");
+
+                    if(middleir2 == 0){
+                        leftir2 = cpf.get("d11");
+                        rightir2 = cpf.get("d7");
+
+                        if(leftir2 == 0 || rightir2 == 0){
+                            timer = 30;
+                        }
+                        else{
+                            timer = 60;
+                        }
+                    }
+                    else{
+                        timer = 30;
+                    }
+
+                    countdown();
+
+                    cpf.request('["digitalWrite", 4, 0]');
+                    cpf.request('["digitalWrite", 5, 1]');
+                    
+                    document.getElementById("middle").innerHTML = "STOP";
+
+                }
+
+                rightir1 = cpf.get("d6");
+
+                else if(rightir1 == 0){
+                    cpf.request('["digitalWrite", 8, 1]');
+                    cpf.request('["digitalWrite", 9, 0]');
+
+                    document.getElementById("right").innerHTML = "GO";
+
+                    rightir2 = cpf.get("d7");
+
+                    if(rightir2 == 0){
+                        leftir2 = cpf.get("d11");
+                        middleir2 = cpf.get("d3");
+
+                        if(leftir2 == 0 || middleir2 == 0){
+                            timer = 30;
+                        }
+                        else{
+                            timer = 60;
+                        }
+                    }
+                    else{
+                        timer = 30;
+                    }
+
+                    countdown();
+
+                    cpf.request('["digitalWrite", 8, 0]');
+                    cpf.request('["digitalWrite", 9, 1]');
+                    
+                    document.getElementById("middle").innerHTML = "STOP";
+
+                }
+
+                leftir1 = cpf.get("d10");
+
+                else if(leftir1 == 0){
+                    cpf.request('["digitalWrite", 12, 1]');
+                    cpf.request('["digitalWrite", 13, 0]');
+
+                    document.getElementById("left").innerHTML = "GO";
+
+                    leftir2 = cpf.get("d1");
+
+                    if(leftir2 == 0){
+                        middleir2 = cpf.get("d3");
+                        rightir2 = cpf.get("d7");
+
+                        if(middleir2 == 0 || rightir2 == 0){
+                            timer = 30;
+                        }
+                        else{
+                            timer = 60;
+                        }
+                    }
+                    else{
+                        timer = 30;
+                    }
+
+                    countdown();
+
+                    cpf.request('["digitalWrite", 12, 0]');
+                    cpf.request('["digitalWrite", 13, 1]');
+                    
+                    document.getElementById("left").innerHTML = "STOP";
+
+                }
+
+                    else{
+                        document.getElementById("left").innerHTML = "NCOTR";
+                        document.getElementById("middle").innerHTML = "NCOTR";
+                        document.getElementById("right").innerHTML = "NCOTR";
+                    }
+            }
+
+            if(middleir1 == 0){
+                cpf.request('["digitalWrite]')
+            }
+
+
+            setTimeout(loop, 1000);
+        }
+
+        loop();
+
+
+
+
+        // cpf setup
+        function setup(){
+            if(cpf)
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 3, "INPUT"],   ["setPinMode", "digital", 6, "INPUT"], ["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 10, "INPUT"], ["setPinMode", "digital", 11, "INPUT"], ["setPinMode, "digital", 4, "OUTPUT"], ["setPinMode, "digital", 5, "OUTPUT"], ["setPinMode, "digital", 8, "OUTPUT"], ["setPinMode, "digital", 9, "OUTPUT"], ["setPinMode, "digital", 12, "OUTPUT"], ["setPinMode, "digital", 13, "OUTPUT"]');
+        }
+
+        function countdown(){
+            document.getElementById("timer").innerHTML = timer;
+            --timer;
+            if(timer!=0){
+                setTimeout(countdown, 1000);
+            }
+        }
+
+    </script>
+</body>
+</html>
