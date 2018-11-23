@@ -8,20 +8,22 @@
 
 </head>
 <body>
-    <font id="title">Waste Management System</font>
+    <br><h1 id="title">Waste Management System</h1><hr>
 
     <div id="content" class="row">
         <div class="col-sm-12  col-xs-12">
             <div id="analog" class="col-sm-6 col-xs-12">
 
                 <div class="analogclass">
-                    Trash Bin 1:
+                    <h2>NON BIODEGRADABLE</h2>
+                    <img class="analogsensor" src="img/closed.png" id="bin1">
                     <span class="analogvalue" id="one">none</span>
-                </div><p></p>
+                </div><br><hr><br>
 
 
                 <div class="analogclass">
-                    Trash Bin 2:
+                    <h2>RECYCLABLE</h2>
+                    <img class="analogsensor" src="img/closed.png" id="bin2">
                     <span class="analogvalue" id="two">none</span>
                 </div><p></p>
 
@@ -40,12 +42,16 @@
         setup();
         function loop() {
             if(cpf){
+                
+                document.getElementById("bin1").src = "img/closed.png";
+                document.getElementById("bin2").src = "img/closed.png";
 
                 switch1 = cpf.get("d4");
                 switch2 = cpf.get("d5");
 
                 if(switch1==1){
                     switch1="Bin is OPEN";
+                    document.getElementById("bin1").src = "img/open.png";
                 }
                 else{
                     full1 = cpf.get("d2");
@@ -53,12 +59,14 @@
                         switch1 = "Bin is not yet full";
                     }
                     else{
-                        switch1 = "Bin is FULL";
+                        switch1 = "Ready for Collection";
+                        document.getElementById("bin1").src = "img/full.png";
                     }
                 }
 
                 if(switch2==1){
                     switch2="Bin is OPEN";
+                    document.getElementById("bin2").src = "img/open.png";
                 }
                 else{
                     full2 = cpf.get("d3");
@@ -66,7 +74,8 @@
                         switch2 = "Bin is not yet full";
                     }
                     else{
-                        switch2 = "Bin is FULL";
+                        switch2 = "Ready for Collection";
+                        document.getElementById("bin2").src = "img/full.png";
                     }
                 }
 
