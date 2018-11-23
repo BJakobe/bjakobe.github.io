@@ -50,13 +50,13 @@
                 switch2 = cpf.get("d5");
 
                 if(switch1==1){
-                    switch1="Bin is OPEN";
+                    switch1="Open";
                     document.getElementById("bin1").src = "img/open.png";
                 }
                 else{
                     full1 = cpf.get("d2");
                     if (full1 == 1){
-                        switch1 = "Bin is not yet full";
+                        switch1 = "Not Yet Full";
                     }
                     else{
                         switch1 = "Ready for Collection";
@@ -65,13 +65,13 @@
                 }
 
                 if(switch2==1){
-                    switch2="Bin is OPEN";
+                    switch2="Open";
                     document.getElementById("bin2").src = "img/open.png";
                 }
                 else{
                     full2 = cpf.get("d3");
                     if (full2 == 1){
-                        switch2 = "Bin is not yet full";
+                        switch2 = "Not Yet Full";
                     }
                     else{
                         switch2 = "Ready for Collection";

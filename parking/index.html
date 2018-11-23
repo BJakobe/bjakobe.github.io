@@ -16,24 +16,28 @@
 
                 <img src="img/green.png" style="height: 35px !important; margin: 0">—Vacant &nbsp;&nbsp;
                 <img src="img/clear.png" style="height: 35px !important; margin: 0">—Occupied
-                <p></p>
+                <p></p><br><br>
+                
+                <div id="parking">
                 <div class="analogclass">
                     <h2>LEVEL 1</h2>
-                    <img src="img/green.png" id="p1">A1
-                    <img src="img/green.png" id="p2">A2<br>
-                    <img src="img/green.png" id="p3">B1
-                    <img src="img/green.png" id="p4">B2
-                    <img src="img/green.png" id="p5">B3<p></p>
-                </div><br>
+                    <img src="img/green.png" id="p1">A
+                    <img src="img/green.png" id="p2">B
+                    <img src="img/green.png" id="p3">C<p></p>
+                </div><hr>
                 
                 <div class="analogclass">
                     <h2>LEVEL 2</h2>
-                    <img src="img/green.png" id="p6">C1
-                    <img src="img/green.png" id="p7">C2
-                    <img src="img/green.png" id="p8">C3<br>
-                    <img src="img/green.png" id="p9">D1
-                    <img src="img/green.png" id="p10">D2<p></p>
+                    <img src="img/green.png" id="p6">D
+                    <img src="img/green.png" id="p7">E
+                    <img src="img/green.png" id="p8">F<p></p>
                 </div><p></p>
+                    
+                </div>
+                
+                <p></p><br>
+                <h2 id="slots">NaN</h2> slots available<hr>
+                <h2 id="total">NaN</h2> total cars parked today
 
             </div>
         </div>
@@ -41,11 +45,14 @@
 
     <script>
 
-        var park = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        var park = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var counter;
         
         setup();
         function loop() {
             if(cpf){
+                counter = 0;
+                
                 park[0] = cpf.get("d2");
                 park[1] = cpf.get("d3");
                 park[2] = cpf.get("d4");
@@ -62,6 +69,7 @@
                 }
                 else{
                     document.getElementById("p1").src="img/green.png";
+                    counter++;
                 }
                 
                 if(park[1]==0){
@@ -69,6 +77,7 @@
                 }
                 else{
                     document.getElementById("p2").src="img/green.png";
+                    counter++;
                 }
                 
                 if(park[2]==0){
@@ -76,6 +85,7 @@
                 }
                 else{
                     document.getElementById("p3").src="img/green.png";
+                    counter++;
                 }
                 
                 if(park[3]==0){
@@ -83,6 +93,7 @@
                 }
                 else{
                     document.getElementById("p4").src="img/green.png";
+                    counter++;
                 }
                 
                 if(park[4]==0){
@@ -90,6 +101,7 @@
                 }
                 else{
                     document.getElementById("p5").src="img/green.png";
+                    counter++;
                 }
                 
                 if(park[5]==0){
@@ -97,6 +109,7 @@
                 }
                 else{
                     document.getElementById("p6").src="img/green.png";
+                    counter++;
                 }
                 
                 if(park[6]==0){
@@ -104,6 +117,7 @@
                 }
                 else{
                     document.getElementById("p7").src="img/green.png";
+                    counter++;
                 }
                 
                 if(park[7]==0){
@@ -111,6 +125,7 @@
                 }
                 else{
                     document.getElementById("p8").src="img/green.png";
+                    counter++;
                 }
                 
                 if(park[8]==0){
@@ -118,6 +133,7 @@
                 }
                 else{
                     document.getElementById("p9").src="img/green.png";
+                    counter++;
                 }
                 
                 if(park[9]==0){
@@ -125,7 +141,10 @@
                 }
                 else{
                     document.getElementById("p10").src="img/green.png";
+                    counter++;
                 }
+                
+                document.getElementById("slots").innerHTML = counter;
                 
             }
             setTimeout(loop, 200);
