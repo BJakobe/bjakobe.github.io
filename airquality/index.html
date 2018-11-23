@@ -16,22 +16,22 @@
 
                 <div class="analogclass">
                     <img class="analogsensor" src="img/temp.png">
-                    <span class="analogvalue" id="tempvalue">none</span>
+                    <span class="analogvalue" id="tempvalue">none</span>°C
                 </div><p></p>
                 
                 <div class="analogclass">
                     <img class="analogsensor" src="img/humidity.png">
-                    <span class="analogvalue" id="humidvalue">none</span>
+                    <span class="analogvalue" id="humidvalue">none</span>%
                 </div><p></p>
                 
                 <div class="analogclass">
                     <img class="analogsensor" src="img/co.png">
-                    <span class="analogvalue" id="gasvalue">none</span>
+                    <span class="analogvalue" id="gasvalue">none</span> PPB
                 </div><p></p>
                 
                 <div class="analogclass">
                     <img class="analogsensor" src="img/pm25.png">
-                    <span class="analogvalue" id="pm25value">none</span>
+                    <span class="analogvalue" id="pm25value">none</span> PPM
                 </div><p></p>
 
             </div>
@@ -54,7 +54,6 @@
                 pm25 = cpf.get("DUST", "d2");
                 
                 pm25 = Math.round((Math.pow(pm25, 0.03))*84.03);
-                gasdata=gasdata*0.001;
                 
                 document.getElementById("gasvalue").innerHTML = gasdata;
                 document.getElementById("tempvalue").innerHTML = temp;
