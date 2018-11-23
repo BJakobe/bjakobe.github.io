@@ -54,6 +54,7 @@
                 pm25 = cpf.get("DUST", "d2");
                 
                 pm25 = Math.round((Math.pow(pm25, 0.03))*84.03);
+                gasdata=gasdata*0.001;
                 
                 document.getElementById("gasvalue").innerHTML = gasdata;
                 document.getElementById("tempvalue").innerHTML = temp;
