@@ -56,8 +56,8 @@
                 pm25 = Math.round((Math.pow(pm25, 0.03))*84.03);
                 
                 document.getElementById("gasvalue").innerHTML = gasdata +" PPB";
-                document.getElementById("tempvalue").innerHTML = temp + "°C";
-                document.getElementById("humidvalue").innerHTML = humid + "%";
+                document.getElementById("tempvalue").innerHTML = "&nbsp;" + temp + "°C&nbsp;&nbsp;";
+                document.getElementById("humidvalue").innerHTML = "&nbsp;&nbsp;" + humid + "%&nbsp;&nbsp;";
                 document.getElementById("pm25value").innerHTML = pm25 + " PPM";
                 
             }
