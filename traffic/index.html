@@ -102,79 +102,85 @@
 
                 }
 
-                rightir1 = cpf.get("d6");
+                else{
 
-                else if(rightir1 == 0){
-                    cpf.request('["digitalWrite", 8, 1]');
-                    cpf.request('["digitalWrite", 9, 0]');
+                    rightir1 = cpf.get("d6");
 
-                    document.getElementById("right").innerHTML = "GO";
+                    if(rightir1 == 0){
+                        cpf.request('["digitalWrite", 8, 1]');
+                        cpf.request('["digitalWrite", 9, 0]');
 
-                    rightir2 = cpf.get("d7");
+                        document.getElementById("right").innerHTML = "GO";
 
-                    if(rightir2 == 0){
-                        leftir2 = cpf.get("d11");
-                        middleir2 = cpf.get("d3");
-
-                        if(leftir2 == 0 || middleir2 == 0){
-                            timer = 30;
-                        }
-                        else{
-                            timer = 60;
-                        }
-                    }
-                    else{
-                        timer = 30;
-                    }
-
-                    countdown();
-
-                    cpf.request('["digitalWrite", 8, 0]');
-                    cpf.request('["digitalWrite", 9, 1]');
-
-                    document.getElementById("middle").innerHTML = "STOP";
-
-                }
-
-                leftir1 = cpf.get("d10");
-
-                else if(leftir1 == 0){
-                    cpf.request('["digitalWrite", 12, 1]');
-                    cpf.request('["digitalWrite", 13, 0]');
-
-                    document.getElementById("left").innerHTML = "GO";
-
-                    leftir2 = cpf.get("d1");
-
-                    if(leftir2 == 0){
-                        middleir2 = cpf.get("d3");
                         rightir2 = cpf.get("d7");
 
-                        if(middleir2 == 0 || rightir2 == 0){
-                            timer = 30;
+                        if(rightir2 == 0){
+                            leftir2 = cpf.get("d11");
+                            middleir2 = cpf.get("d3");
+
+                            if(leftir2 == 0 || middleir2 == 0){
+                                timer = 30;
+                            }
+                            else{
+                                timer = 60;
+                            }
                         }
                         else{
-                            timer = 60;
+                            timer = 30;
+                        }
+
+                        countdown();
+
+                        cpf.request('["digitalWrite", 8, 0]');
+                        cpf.request('["digitalWrite", 9, 1]');
+
+                        document.getElementById("middle").innerHTML = "STOP";
+
+                    }
+
+                    else{
+                        leftir1 = cpf.get("d10");
+
+                        if(leftir1 == 0){
+                            cpf.request('["digitalWrite", 12, 1]');
+                            cpf.request('["digitalWrite", 13, 0]');
+
+                            document.getElementById("left").innerHTML = "GO";
+
+                            leftir2 = cpf.get("d1");
+
+                            if(leftir2 == 0){
+                                middleir2 = cpf.get("d3");
+                                rightir2 = cpf.get("d7");
+
+                                if(middleir2 == 0 || rightir2 == 0){
+                                    timer = 30;
+                                }
+                                else{
+                                    timer = 60;
+                                }
+                            }
+                            else{
+                                timer = 30;
+                            }
+
+                            countdown();
+
+                            cpf.request('["digitalWrite", 12, 0]');
+                            cpf.request('["digitalWrite", 13, 1]');
+
+                            document.getElementById("left").innerHTML = "STOP";
+
+                        }
+                        
+                        else{
+                            document.getElementById("left").innerHTML = "NCOTR";
+                    document.getElementById("middle").innerHTML = "NCOTR";
+                    document.getElementById("right").innerHTML = "NCOTR";
                         }
                     }
-                    else{
-                        timer = 30;
-                    }
-
-                    countdown();
-
-                    cpf.request('["digitalWrite", 12, 0]');
-                    cpf.request('["digitalWrite", 13, 1]');
-
-                    document.getElementById("left").innerHTML = "STOP";
 
                 }
-
-                    else{
-                        document.getElementById("left").innerHTML = "NCOTR";
-                        document.getElementById("middle").innerHTML = "NCOTR";
-                        document.getElementById("right").innerHTML = "NCOTR";
-                    }
             }
 
             loop();
