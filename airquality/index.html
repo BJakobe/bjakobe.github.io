@@ -53,7 +53,7 @@
                 temp = cpf.get("DHT22", "d4", "dht22temp");
                 pm25 = cpf.get("DUST", "d2");
                 
-                pm25 = (Math.pow(pm25, 0.05))*84.03;
+                pm25 = Math.round((Math.pow(pm25, 0.03))*84.03);
                 
                 document.getElementById("gasvalue").innerHTML = gasdata;
                 document.getElementById("tempvalue").innerHTML = temp;
