@@ -16,7 +16,7 @@
             <div id="analog" class="col-sm-6 col-xs-12">
 
                 <canvas id="myChart" width="400" height="400"></canvas>
-                <p id="loll"></p>
+                <h2 id="ca"></h2>
 
 
                 <!--
@@ -62,13 +62,13 @@
             if(cpf){
                 d = new Date();
                 n[counter] = d.toLocaleTimeString();
-                
+
                 if(counter==0){
                     current[1] = 0;
                     current[2] = 0;
                     current[3] = 0;
                     current[4] = 0;
-                    
+
                     n[1] = 0;
                     n[2] = 0;
                     n[3] = 0;
@@ -79,7 +79,7 @@
                 current[counter] = (raw-offset)*0.045;
                 current[counter] = Math.round(current[counter]*100)/100;
 
-                document.getElementById("loll").innerHTML = current[counter] + " " + n[counter];
+                document.getElementById("ca").innerHTML = current[counter] + " A<br>" + n[counter];
 
                 if(counter==4){
                     counter=0;
@@ -97,8 +97,7 @@
         function setup(){
             if(cpf){
                 cpf.setPinMode('["resetPin"], ["setPinMode", "analog", 0, "INPUT"]');
-                //                offset = cpf.get("a0");
-                offset = 0;
+                offset = cpf.get("a0");
             }
         }
 
@@ -110,9 +109,9 @@
                 data: {
                     labels: [n[0], n[1], n[2], n[3], n[4]],
                     datasets: [{
-                        label: 'Real-Time Readingss',
+                        label: 'Real-Time Current',
                         data: [current[0], current[1], current[2], current[3], current[4]],
-                        //                    data: [1.32,5.27,2.00,3.12,4.3],
+                        //               sample     data: [1.32,5.27,2.00,3.12,4.3],
                         backgroundColor: 'rgba(87, 195, 226, 0.2)',
                         borderColor: 'rgba(87,195,226,1)',
                         borderWidth: 1
