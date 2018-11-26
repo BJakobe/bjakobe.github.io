@@ -28,9 +28,9 @@
                 
                 <div class="analogclass">
                     <h2>LEVEL 2</h2>
-                    <img src="img/green.png" id="p6">D
-                    <img src="img/green.png" id="p7">E
-                    <img src="img/green.png" id="p8">F<p></p>
+                    <img src="img/green.png" id="p4">D
+                    <img src="img/green.png" id="p5">E
+                    <img src="img/green.png" id="p6">F<p></p>
                 </div><p></p>
                     
                 </div>
@@ -44,7 +44,7 @@
     </div>
 
     <script>
-
+//switch
         var park = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         var counter;
         
@@ -59,10 +59,6 @@
                 park[3] = cpf.get("d5");
                 park[4] = cpf.get("d6");
                 park[5] = cpf.get("d7");
-                park[6] = cpf.get("d8");
-                park[7] = cpf.get("d9");
-                park[8] = cpf.get("d10");
-                park[9] = cpf.get("d11");
                 
                 if(park[0]==0){
                     document.getElementById("p1").src="img/clear.png";
@@ -109,38 +105,6 @@
                 }
                 else{
                     document.getElementById("p6").src="img/green.png";
-                    counter++;
-                }
-                
-                if(park[6]==0){
-                    document.getElementById("p7").src="img/clear.png";
-                }
-                else{
-                    document.getElementById("p7").src="img/green.png";
-                    counter++;
-                }
-                
-                if(park[7]==0){
-                    document.getElementById("p8").src="img/clear.png";
-                }
-                else{
-                    document.getElementById("p8").src="img/green.png";
-                    counter++;
-                }
-                
-                if(park[8]==0){
-                    document.getElementById("p9").src="img/clear.png";
-                }
-                else{
-                    document.getElementById("p9").src="img/green.png";
-                    counter++;
-                }
-                
-                if(park[9]==0){
-                    document.getElementById("p10").src="img/clear.png";
-                }
-                else{
-                    document.getElementById("p10").src="img/green.png";
                     counter++;
                 }
                 
