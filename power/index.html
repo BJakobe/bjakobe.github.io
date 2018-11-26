@@ -16,7 +16,7 @@
             <div id="analog" class="col-sm-6 col-xs-12">
 
                 <canvas id="myChart" width="400" height="400"></canvas>
-                <h2 id="ca"></h2>
+                <br><h2 id="ca"></h2><br><p id="time"></p>
 
 
                 <!--
@@ -79,7 +79,8 @@
                 current[counter] = (raw-offset)*0.045;
                 current[counter] = Math.round(current[counter]*100)/100;
 
-                document.getElementById("ca").innerHTML = current[counter] + " A<br>" + n[counter];
+                document.getElementById("ca").innerHTML = current[counter] + " A";
+                document.getElementById("time").innerHTML = n[counter];
 
                 if(counter==4){
                     counter=0;
