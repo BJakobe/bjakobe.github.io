@@ -54,6 +54,9 @@
         var offset;
         var raw;
         var counter = 0;
+        
+        var d = new Date();
+        var n = d.toLocaleTimeString();
 
         setup();
         function loop() {
@@ -62,7 +65,7 @@
                 current[counter] = (raw-offset)*0.045;
                 current[counter] = Math.round(current[counter]*100)/100;
                 
-                document.getElementById("loll").innerHTML = current[counter];
+                document.getElementById("loll").innerHTML = current[counter] + " " + n;
                 
                 if(counter==4){
                     counter=0;
