@@ -55,12 +55,12 @@
         var raw;
         var counter = 0;
 
-        var d = new Date();
-        var n = d.toLocaleTimeString();
-
         setup();
         function loop() {
             if(cpf){
+                var d = new Date();
+                var n = d.toLocaleTimeString();
+
                 raw = cpf.get("a0");
                 current[counter] = (raw-offset)*0.045;
                 current[counter] = Math.round(current[counter]*100)/100;
