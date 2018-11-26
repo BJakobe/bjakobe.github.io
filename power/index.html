@@ -16,12 +16,16 @@
             <div id="analog" class="col-sm-6 col-xs-12">
 
                 <canvas id="myChart" width="400" height="400"></canvas>
+                <p id="loll"></p>
 
-                <!--
+                
+<!--
 <div class="analogclass">
 <img class="analogsensor" src="img/temp.png">
 <span class="analogvalue" id="tempvalue">none</span>
 </div><p></p>
+-->
+<!--
 
 <div class="analogclass">
 <img class="analogsensor" src="img/humidity.png">
@@ -38,6 +42,7 @@
 <span class="analogvalue" id="pm25value">none</span>
 </div><p></p>
 -->
+
 
             </div>
         </div>
@@ -56,6 +61,9 @@
                 raw = cpf.get("a0");
                 current[counter] = (raw-offset)*0.045;
                 current[counter] = Math.round(current[counter]*100)/100;
+                
+                document.getElementById("loll").innerHTML = current[counter];
+                
                 if(counter==4){
                     counter=0;
                 }
