@@ -56,18 +56,54 @@ body{
 #analog {
 	height: auto;
 	float: left;
-/*	background-color: green;*/
 	padding: 0 4em;
 }
 
 .analogclass {
 	display: block;
-/*
-	border: 1px solid #ccc;
-	border-radius: 3px;
-*/
 	height: auto;
 	margin: 0 auto;
+}
+
+.waterclass {
+	display: block;
+	height: auto;
+	margin: 0 auto;
+    border-right: 2px solid #eaeaea;
+    border-left: 2px solid #eaeaea;
+    font-family: lemonMilk;
+}
+
+#waterbottom{
+    border-bottom: 2px solid #eaeaea;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding-bottom: 7px;
+/*    background-color: #1398be;*/
+}
+
+#watercritical{
+    border-bottom: 2px dashed #ff3111;
+/*    background-color: #b5e9f8;*/
+    color: #ff3111;
+}
+
+/*
+#twenty{
+    background-color: #34b0d3;
+}
+
+#thirty{
+    background-color: #57c4e2;
+}
+
+#forty{
+    background-color: #80d5ee;
+}
+*/
+
+#twenty, #thirty, #forty{
+    border-bottom: 2px dashed rgb(234,234,234,0.2);
 }
 
 #parking{

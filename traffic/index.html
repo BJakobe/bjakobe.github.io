@@ -92,8 +92,10 @@
                     else{
                         timer = 30;
                     }
-
-                    countdown();
+                    
+                    while(timer!=0){
+                        setTimeout(countdown, 1000);
+                    }
 
                     cpf.request('["digitalWrite", 4, 0]');
                     cpf.request('["digitalWrite", 5, 1]');

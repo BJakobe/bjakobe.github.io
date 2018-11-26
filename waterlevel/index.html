@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <style>
+        .analogvalue{
+            margin-top: 35px !important;
+        }
+    
+    </style>
 
 </head>
 <body>
@@ -14,30 +21,32 @@
         <div class="col-sm-12  col-xs-12">
             <div id="analog" class="col-sm-6 col-xs-12">
 
-                <div class="analogclass">
-                    <img class="analogsensor" src="img/temp.png">
-                    <span class="analogvalue" id="500m">none</span>
-                </div><p></p>
-                
-                <div class="analogclass">
-                    <img class="analogsensor" src="img/humidity.png">
-                    <span class="analogvalue" id="400m">none</span>
-                </div><p></p>
-                
-                <div class="analogclass">
-                    <img class="analogsensor" src="img/co.png">
-                    <span class="analogvalue" id="300m">none</span>
-                </div><p></p>
-                
-                <div class="analogclass">
-                    <img class="analogsensor" src="img/pm25.png">
-                    <span class="analogvalue" id="200m">none</span>
-                </div><p></p>
-                
-                <div class="analogclass">
-                    <img class="analogsensor" src="img/pm25.png">
-                    <span class="analogvalue" id="100m">none</span>
-                </div><p></p>
+                <div class="waterclass" id="watercritical">
+                    <img class="analogsensor">
+                    <span class="analogvalue">50 ft.</span>
+                </div>
+
+                <div class="waterclass" id="forty">
+                    <img class="analogsensor">
+                    <span class="analogvalue">40 ft.</span>
+                </div>
+
+                <div class="waterclass" id="thirty">
+                    <img class="analogsensor">
+                    <span class="analogvalue">30 ft.</span>
+                </div>
+
+                <div class="waterclass" id="twenty">
+                    <img class="analogsensor">
+                    <span class="analogvalue">20 ft.</span>
+                </div>
+
+                <div class="waterclass" id="waterbottom">
+                    <img class="analogsensor">
+                    <span class="analogvalue" id="100m">10 ft.</span>
+                </div>
+
+                <br><p style="color: #57c4e2;">*above sea level*</p>
 
             </div>
         </div>
@@ -50,25 +59,84 @@
         var threem;
         var fourm;
         var fivem;
-        
-        setup();
-        function loop() {
-            if(cpf){
-                onem = cpf.get("d5");
-                twom = cpf.get("d6");
-                threem = cpf.get("d7");
-                fourm = cpf.get("d8");
-                fivem = cpf.get("d9");
-                
-                document.getElementById("100m").innerHTML = onem;
-                document.getElementById("200m").innerHTML = twom;
-                document.getElementById("300m").innerHTML = threem;
-                document.getElementById("400m").innerHTML = fourm;
-                document.getElementById("500m").innerHTML = fivem;
-                
+
+        var switch = 0;
+
+            setup();
+            function loop() {
+                    if(cpf){
+
+                        var date = new Date();
+                        var time = date.toLocaleString();
+                        var warning = 'RED ALERT! Water in Abacan River has reached the threshold level.\n' + time;
+
+                        onem = cpf.get("d5");
+                        twom = cpf.get("d6");
+                        threem = cpf.get("d7");
+                        fourm = cpf.get("d8");
+                        fivem = cpf.get("d9");
+
+                        if(onem==1){
+                            document.getElementById("waterbottom").style.backgroundColor = "#1398BE";
+                        }
+                        else{
+
+                        } 
+
+                        if(twom==1){
+                            document.getElementById("twenty").style.backgroundColor = "#34b0d3";
+                        }
+                        else{
+
+                        }    
+
+                        if(threem==1){
+                            document.getElementById("thirty").style.backgroundColor = "#57c4e2";
+                        }
+                        else{
+
+                        }     
+
+                        if(fourm==1){
+                            document.getElementById("forty").style.backgroundColor = "#80d5ee";
+                        }
+                        else{
+
+                        }       
+
+                        if(fivem==1){
+                            document.getElementById("forty").style.backgroundColor = "#80d5ee";
+                        }
+                        else{
+                            switch = 0;
+
+                        }     
+
+                        if(fivem==1 && switch = 0){
+                            var rapid = new RapidAPI("default-application_5bf9237be4b067d7d955e362", "aa6ea476-db7a-4466-a01f-34d2e386bfea");
+
+                            rapid.call('Twitter', 'tweet', { 
+                                'accessTokenKey': '1062226432661819392-DFqV6gsokzyugKVq290I83bjRbATXV',
+                                'consumerKey': 'tYAdqsioxQ26LUxVR2eyQaU0h',
+                                'tweetBody': warning,
+                                'accessTokenSecret': 'Y5lvLTTxu6Sjn2VX4WYRrQUlTydGtIPOkTFPMjdwyubfQ',
+                                'consumerSecret': 'kK6ntSnbwOOG9naS5oc5YAi4uFWlYLBH4mwhJDSBRiKYBgLD5X'
+
+                            }).on('success', function (payload) {
+
+                            }).on('error', function (payload) {
+
+                            });
+                            switch = 1;
+
+                        }
+                        else{
+                            
+                        }
+
+                    }
+                    setTimeout(loop, 1000);
             }
-            setTimeout(loop, 1000);
-        }
         loop();
 
 
