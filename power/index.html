@@ -18,14 +18,14 @@
                 <canvas id="myChart" width="400" height="400"></canvas>
                 <p id="loll"></p>
 
-                
-<!--
+
+                <!--
 <div class="analogclass">
 <img class="analogsensor" src="img/temp.png">
 <span class="analogvalue" id="tempvalue">none</span>
 </div><p></p>
 -->
-<!--
+                <!--
 
 <div class="analogclass">
 <img class="analogsensor" src="img/humidity.png">
@@ -54,7 +54,7 @@
         var offset;
         var raw;
         var counter = 0;
-        
+
         var d = new Date();
         var n = d.toLocaleTimeString();
 
@@ -64,15 +64,16 @@
                 raw = cpf.get("a0");
                 current[counter] = (raw-offset)*0.045;
                 current[counter] = Math.round(current[counter]*100)/100;
-                
+
                 document.getElementById("loll").innerHTML = current[counter] + " " + n;
-                
+
                 if(counter==4){
                     counter=0;
                 }
                 else{
                     counter++;
                 }
+                graph();
             }
             setTimeout(loop, 5000);
         }
@@ -82,35 +83,39 @@
         function setup(){
             if(cpf){
                 cpf.setPinMode('["resetPin"], ["setPinMode", "analog", 0, "INPUT"]');
-//                offset = cpf.get("a0");
+                //                offset = cpf.get("a0");
                 offset = 0;
             }
         }
 
-        var ctx = document.getElementById("myChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
-                datasets: [{
-                    label: 'Real-Time Readingss',
-                    data: [current[0], current[1], current[2], current[3], current[4]],
-//                    data: [1.32,5.27,2.00,3.12,4.3],
-                    backgroundColor: 'rgba(87, 195, 226, 0.2)',
-                    borderColor: 'rgba(87,195,226,1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:false
-                        }
+        function graph(){
+
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
+                    datasets: [{
+                        label: 'Real-Time Readingss',
+                        data: [current[0], current[1], current[2], current[3], current[4]],
+                        //                    data: [1.32,5.27,2.00,3.12,4.3],
+                        backgroundColor: 'rgba(87, 195, 226, 0.2)',
+                        borderColor: 'rgba(87,195,226,1)',
+                        borderWidth: 1
                     }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:false
+                            }
+                        }]
+                    }
                 }
-            }
-        });
+            });
+
+        }
 
     </script>
 </body>
