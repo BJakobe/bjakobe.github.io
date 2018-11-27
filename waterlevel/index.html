@@ -63,7 +63,6 @@
         var date;
         var time;
         var warning;
-        var rapid;
 
         var switchess = 0;
 
@@ -83,7 +82,7 @@
                 fivem = cpf.get("d9");
 
                 document.getElementById("high").innerHTML = fivem;
-                document.getElementById("low").innerHTML = fourm;
+                document.getElementById("low").innerHTML = switchess;
 
                 if(onem==1){
                     document.getElementById("waterbottom").style.backgroundColor = "#1398BE";
@@ -124,7 +123,7 @@
 
                 if(fivem==1 && switchess==0){
 
-                    rapid = new RapidAPI("default-application_5bf9237be4b067d7d955e362", "aa6ea476-db7a-4466-a01f-34d2e386bfea");
+                    var rapid = new RapidAPI("default-application_5bf9237be4b067d7d955e362", "aa6ea476-db7a-4466-a01f-34d2e386bfea");
 
                     rapid.call('Twitter', 'tweet', { 
                         'accessTokenKey': '1062226432661819392-DFqV6gsokzyugKVq290I83bjRbATXV',
