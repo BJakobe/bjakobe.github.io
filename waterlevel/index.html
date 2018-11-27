@@ -33,7 +33,7 @@
 
                 <div class="waterclass" id="thirty">
                     <img class="analogsensor">
-                    <span class="analogvalue">30 ft.</span>
+                    <span class="analogvalue" id="validator">30 ft.</span>
                 </div>
 
                 <div class="waterclass" id="twenty">
@@ -142,7 +142,7 @@
 
                 }
                 else{
-                    document.getElementById("waterbottom").style.backgroundColor = "red";
+                    document.getElementById("validator").innerHTML = "red";
                 }
 
             }
