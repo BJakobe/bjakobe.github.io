@@ -44,8 +44,8 @@
         function loop() {
             if(cpf){
                 
-                cpf.request('["servo_pos", 9, 180]');
-                cpf.request('["servo_pos", 9, 90]');
+                cpf.request('["analogWrite", 9, 180]');
+                cpf.request('["analogWrite", 9, 90]');
                 
                 document.getElementById("bin1").src = "img/closed.png";
                 document.getElementById("bin2").src = "img/closed.png";
@@ -94,7 +94,7 @@
         function setup(){
             if(cpf)
 
-                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 3, "INPUT"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"], ["servo_init", 8, 90, 500, 2400]');
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 3, "INPUT"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"], ["setPinMode", "digital", 9, "SERVO"]');
         }
     </script>
 </body>
