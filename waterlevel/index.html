@@ -81,8 +81,8 @@
                 fourm = cpf.get("d8");
                 fivem = cpf.get("d9");
 
-                document.getElementById("high").innerHTML = fivem;
-                document.getElementById("low").innerHTML = switchess;
+//                document.getElementById("high").innerHTML = fivem;
+//                document.getElementById("low").innerHTML = switchess;
 
                 if(onem==1){
                     document.getElementById("waterbottom").style.backgroundColor = "#1398BE";
@@ -121,31 +121,29 @@
 
                 }     
 
-                if(fivem==1 && switchess==0){
-                    
-                    switchess = 1;
-
-                    var rapid = new RapidAPI("default-application_5bf9237be4b067d7d955e362", "aa6ea476-db7a-4466-a01f-34d2e386bfea");
-
-                    rapid.call('Twitter', 'tweet', { 
-                        'accessTokenKey': '1062226432661819392-DFqV6gsokzyugKVq290I83bjRbATXV',
-                        'consumerKey': 'tYAdqsioxQ26LUxVR2eyQaU0h',
-                        'tweetBody': warning,
-                        'accessTokenSecret': 'Y5lvLTTxu6Sjn2VX4WYRrQUlTydGtIPOkTFPMjdwyubfQ',
-                        'consumerSecret': 'kK6ntSnbwOOG9naS5oc5YAi4uFWlYLBH4mwhJDSBRiKYBgLD5X'
-
-                    }).on('success', function (payload) {
-                        /*YOUR CODE GOES HERE*/ 
-                    }).on('error', function (payload) {
-                        /*YOUR CODE GOES HERE*/ 
-                    });
-
-                    
-
-                }
-                else{
-                    document.getElementById("validator").innerHTML = "red";
-                }
+//                if(fivem==1 && switchess==0){
+//                    
+//                    var rapid = new RapidAPI("default-application_5bf9237be4b067d7d955e362", "aa6ea476-db7a-4466-a01f-34d2e386bfea");
+//
+//                    rapid.call('Twitter', 'tweet', { 
+//                        'accessTokenKey': '1062226432661819392-DFqV6gsokzyugKVq290I83bjRbATXV',
+//                        'consumerKey': 'tYAdqsioxQ26LUxVR2eyQaU0h',
+//                        'tweetBody': warning,
+//                        'accessTokenSecret': 'Y5lvLTTxu6Sjn2VX4WYRrQUlTydGtIPOkTFPMjdwyubfQ',
+//                        'consumerSecret': 'kK6ntSnbwOOG9naS5oc5YAi4uFWlYLBH4mwhJDSBRiKYBgLD5X'
+//
+//                    }).on('success', function (payload) {
+//                        /*YOUR CODE GOES HERE*/ 
+//                    }).on('error', function (payload) {
+//                        /*YOUR CODE GOES HERE*/ 
+//                    });
+//                    
+//                    switchess = 1;
+//
+//                }
+//                else{
+//                    document.getElementById("validator").innerHTML = "red";
+//                }
 
             }
             setTimeout(loop, 1000);
