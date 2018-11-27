@@ -114,6 +114,7 @@
 
                 if(fivem==1){
                     document.getElementById("watercritical").style.backgroundColor = "#b5e9f8";
+                    cpf.request('["digitalWrite", 10, 1]');
                 }
                 else{
                     document.getElementById("watercritical").style.backgroundColor = "transparent";
@@ -156,7 +157,7 @@
         // cpf setup
         function setup(){
             if(cpf)
-                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 5, "INPUT"], ["setPinMode", "digital", 6, "INPUT"], ["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 8, "INPUT"], ["setPinMode", "digital", 9, "INPUT"]');
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 5, "INPUT"], ["setPinMode", "digital", 6, "INPUT"], ["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 8, "INPUT"], ["setPinMode", "digital", 9, "INPUT"], ["setPinMode", "digital", 10, "OUTPUT"]');
         }
 
     </script>
