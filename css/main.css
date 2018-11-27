@@ -127,6 +127,19 @@ body{
 	margin-right: 40px;
 }
 
+#header{
+    background-color: #57c4e2;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: lemonMilk;
+    margin-bottom: -10px;
+}
+
+a:link, a:visited{
+    text-decoration: none;
+    color: #eaeaea;
+}
 
 @media screen and (max-width: 430px) {
 	
