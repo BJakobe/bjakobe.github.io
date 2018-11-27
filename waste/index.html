@@ -39,13 +39,15 @@
         var switch2;
         var full1;
         var full2;
+        
+        var switchess = 0;
 
         setup();
         function loop() {
             if(cpf){
                 
-                cpf.request('["analogWrite", 9, 180]');
-                cpf.request('["analogWrite", 9, 90]');
+//                cpf.request('["analogWrite", 9, 180]');
+//                cpf.request('["analogWrite", 9, 90]');
                 
                 document.getElementById("bin1").src = "img/closed.png";
                 document.getElementById("bin2").src = "img/closed.png";
@@ -54,31 +56,31 @@
                 switch2 = cpf.get("d5");
 
                 if(switch1==1){
-                    switch1="Open";
+                    switch1="OPEN";
                     document.getElementById("bin1").src = "img/open.png";
                 }
                 else{
                     full1 = cpf.get("d2");
                     if (full1 == 1){
-                        switch1 = "Not Yet Full";
+                        switch1 = "NYF";
                     }
                     else{
-                        switch1 = "Ready for Collection";
+                        switch1 = "RFC";
                         document.getElementById("bin1").src = "img/full.png";
                     }
                 }
 
                 if(switch2==1){
-                    switch2="Open";
+                    switch2="OPEN";
                     document.getElementById("bin2").src = "img/open.png";
                 }
                 else{
                     full2 = cpf.get("d3");
                     if (full2 == 1){
-                        switch2 = "Not Yet Full";
+                        switch2 = "NYF";
                     }
                     else{
-                        switch2 = "Ready for Collection";
+                        switch2 = "RFC";
                         document.getElementById("bin2").src = "img/full.png";
                     }
                 }
@@ -94,7 +96,9 @@
         function setup(){
             if(cpf)
 
-                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 3, "INPUT"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"], ["setPinMode", "digital", 9, "SERVO"]');
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 3, "INPUT"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"]');
+            
+            //["setPinMode", "digital", 9, "SERVO"]
         }
     </script>
 </body>
