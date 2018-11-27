@@ -67,93 +67,93 @@
 
         var switchess = 0;
 
-            setup();
-            function loop() {
-                    if(cpf){
+        setup();
+        function loop() {
+            if(cpf){
 
-                        date = new Date();
-                        time = date.toLocaleString();
-                        warning = 'RED ALERT! Water in Abacan River has reached the threshold level.\n' + time;
+                date = new Date();
+                time = date.toLocaleString();
+                warning = 'RED ALERT! Water in Abacan River has reached the threshold level.\n' + time;
 
-                        onem = cpf.get("d5");
-                        twom = cpf.get("d6");
-                        threem = cpf.get("d7");
-                        fourm = cpf.get("d8");
-                        fivem = cpf.get("d9");
+                onem = cpf.get("d5");
+                twom = cpf.get("d6");
+                threem = cpf.get("d7");
+                fourm = cpf.get("d8");
+                fivem = cpf.get("d9");
 
-                        document.getElementById("high").innerHTML = fivem;
+                document.getElementById("high").innerHTML = fivem;
 
-                        if(onem==1){
-                            document.getElementById("waterbottom").style.backgroundColor = "#1398BE";
-                        }
-                        else{
+                if(onem==1){
+                    document.getElementById("waterbottom").style.backgroundColor = "#1398BE";
+                }
+                else{
 
-                        } 
+                } 
 
-                        if(twom==1){
-                            document.getElementById("twenty").style.backgroundColor = "#34b0d3";
-                        }
-                        else{
+                if(twom==1){
+                    document.getElementById("twenty").style.backgroundColor = "#34b0d3";
+                }
+                else{
 
-                        }    
+                }    
 
-                        if(threem==1){
-                            document.getElementById("thirty").style.backgroundColor = "#57c4e2";
-                        }
-                        else{
+                if(threem==1){
+                    document.getElementById("thirty").style.backgroundColor = "#57c4e2";
+                }
+                else{
 
-                        }     
+                }     
 
-                        if(fourm==1){
-                            document.getElementById("forty").style.backgroundColor = "#80d5ee";
-                        }
-                        else{
+                if(fourm==1){
+                    document.getElementById("forty").style.backgroundColor = "#80d5ee";
+                }
+                else{
 
-                        }       
+                }       
 
-                        if(fivem==1){
-                            document.getElementById("forty").style.backgroundColor = "#80d5ee";
-                        }
-                        else{
-                            switchess = 0;
+                if(fivem==1){
+                    document.getElementById("forty").style.backgroundColor = "#80d5ee";
+                }
+                else{
+                    switchess = 0;
 
-                        }     
+                }     
 
-                                if(fivem==1 && switchess = 0){
-                                        rapid = new RapidAPI("default-application_5bf9237be4b067d7d955e362", "aa6ea476-db7a-4466-a01f-34d2e386bfea");
+//                if(fivem==1 && switchess = 0){
+//                    rapid = new RapidAPI("default-application_5bf9237be4b067d7d955e362", "aa6ea476-db7a-4466-a01f-34d2e386bfea");
+//
+//                    rapid.call('Twitter', 'tweet', { 
+//                        'accessTokenKey': '1062226432661819392-DFqV6gsokzyugKVq290I83bjRbATXV',
+//                        'consumerKey': 'tYAdqsioxQ26LUxVR2eyQaU0h',
+//                        'tweetBody': warning,
+//                        'accessTokenSecret': 'Y5lvLTTxu6Sjn2VX4WYRrQUlTydGtIPOkTFPMjdwyubfQ',
+//                        'consumerSecret': 'kK6ntSnbwOOG9naS5oc5YAi4uFWlYLBH4mwhJDSBRiKYBgLD5X'
+//
+//                    }).on('success', function (payload) {
+//
+//                    }).on('error', function (payload) {
+//
+//                    });
+//                    switchess = 1;
+//
+//                }
+//                else{
+//
+//                }
 
-                                        rapid.call('Twitter', 'tweet', { 
-                                            'accessTokenKey': '1062226432661819392-DFqV6gsokzyugKVq290I83bjRbATXV',
-                                            'consumerKey': 'tYAdqsioxQ26LUxVR2eyQaU0h',
-                                            'tweetBody': warning,
-                                            'accessTokenSecret': 'Y5lvLTTxu6Sjn2VX4WYRrQUlTydGtIPOkTFPMjdwyubfQ',
-                                            'consumerSecret': 'kK6ntSnbwOOG9naS5oc5YAi4uFWlYLBH4mwhJDSBRiKYBgLD5X'
-
-                                        }).on('success', function (payload) {
-
-                                        }).on('error', function (payload) {
-
-                                        });
-                                        switchess = 1;
-
-                                }
-                                            else{
-
-                                            }
-
-                                }
-                            setTimeout(loop, 1000);
-                        }
-                        loop();
-
-
+            }
+            setTimeout(loop, 1000);
+        }
+        loop();
 
 
-                        // cpf setup
-                        function setup(){
-                            if(cpf)
-                                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 5, "INPUT"], ["setPinMode", "digital", 6, "INPUT"], ["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 8, "INPUT"], ["setPinMode", "digital", 9, "INPUT"]');
-                        }
+
+
+        // cpf setup
+        function setup(){
+            if(cpf)
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 5, "INPUT"], ["setPinMode", "digital", 6, "INPUT"], ["setPinMode", "digital", 7, "INPUT"], ["setPinMode", "digital", 8, "INPUT"], ["setPinMode", "digital", 9, "INPUT"]');
+        }
 
     </script>
 </body>
