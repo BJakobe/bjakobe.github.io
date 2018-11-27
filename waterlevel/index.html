@@ -23,7 +23,7 @@
 
                 <div class="waterclass" id="watercritical">
                     <img class="analogsensor">
-                    <span class="analogvalue">50 ft.</span>
+                    <span class="analogvalue" id="high">50 ft.</span>
                 </div>
 
                 <div class="waterclass" id="forty">
@@ -43,7 +43,7 @@
 
                 <div class="waterclass" id="waterbottom">
                     <img class="analogsensor">
-                    <span class="analogvalue" id="100m">10 ft.</span>
+                    <span class="analogvalue">10 ft.</span>
                 </div>
 
                 <br><p style="color: #57c4e2;">*above normal level*</p>
@@ -75,6 +75,8 @@
                         threem = cpf.get("d7");
                         fourm = cpf.get("d8");
                         fivem = cpf.get("d9");
+                        
+                        document.getElementById("high").innerHTML = fivem;
 
                         if(onem==1){
                             document.getElementById("waterbottom").style.backgroundColor = "#1398BE";
