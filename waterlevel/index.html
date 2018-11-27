@@ -122,7 +122,7 @@
                 }     
 
                 if(fivem==1 && switchess==0){
-                    
+
                     rapid = new RapidAPI("default-application_5bf9237be4b067d7d955e362", "aa6ea476-db7a-4466-a01f-34d2e386bfea");
 
                     rapid.call('Twitter', 'tweet', { 
@@ -133,10 +133,11 @@
                         'consumerSecret': 'kK6ntSnbwOOG9naS5oc5YAi4uFWlYLBH4mwhJDSBRiKYBgLD5X'
 
                     }).on('success', function (payload) {
-
+                        /*YOUR CODE GOES HERE*/ 
                     }).on('error', function (payload) {
-
+                        /*YOUR CODE GOES HERE*/ 
                     });
+
                     switchess = 1;
 
                 }
