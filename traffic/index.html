@@ -93,15 +93,14 @@
                     else{
                         timer = 30;
                     }
-                    
-                    while(timer!=0){
-                        setTimeout(countdown, 1000);
-                    }
 
-                    cpf.request('["digitalWrite", 4, 0]');
-                    cpf.request('["digitalWrite", 5, 1]');
+                    countdown();
 
-                    document.getElementById("middle").innerHTML = "STOP";
+
+//                    cpf.request('["digitalWrite", 4, 0]');
+//                    cpf.request('["digitalWrite", 5, 1]');
+
+//                    document.getElementById("middle").innerHTML = "STOP";
 
                 }
 
@@ -134,10 +133,10 @@
 
                         countdown();
 
-                        cpf.request('["digitalWrite", 8, 0]');
-                        cpf.request('["digitalWrite", 9, 1]');
+//                        cpf.request('["digitalWrite", 8, 0]');
+//                        cpf.request('["digitalWrite", 9, 1]');
 
-                        document.getElementById("middle").innerHTML = "STOP";
+//                        document.getElementById("middle").innerHTML = "STOP";
 
                     }
 
@@ -169,10 +168,10 @@
 
                             countdown();
 
-                            cpf.request('["digitalWrite", 12, 0]');
-                            cpf.request('["digitalWrite", 13, 1]');
+//                            cpf.request('["digitalWrite", 12, 0]');
+//                            cpf.request('["digitalWrite", 13, 1]');
 
-                            document.getElementById("left").innerHTML = "STOP";
+//                            document.getElementById("left").innerHTML = "STOP";
 
                         }
 
@@ -185,8 +184,15 @@
 
                 }
             }
-
-            loop();
+            if(timer==60){
+                setTimeout(loop, 60000);
+            }
+            else if(timer==30){
+                setTimeout(loop, 30000);
+            }
+            else{
+                setTimeout(loop,100);
+            }
         }
 
         loop();

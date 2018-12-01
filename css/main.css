@@ -121,10 +121,21 @@ body{
 }
 
 .analogvalue {
-	font-size: 26px;
+	font-size: 23.64999px;
 	float: right;
 	margin-top: 44px;
 	margin-right: 40px;
+    font-family: plain;
+    font-weight: bolder;
+}
+
+.waste {
+	font-size: 23.64999px;
+	float: right;
+	margin-top: 44px;
+	margin-right: 40px;
+    font-family: plain;
+    font-weight: bolder;
 }
 
 #header{
