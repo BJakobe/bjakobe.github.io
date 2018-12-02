@@ -62,8 +62,6 @@
         
         var total = 0;
         var power = 0;
-        
-        var logs;
 
         setup();
         function loop() {
@@ -95,8 +93,7 @@
                 
                 document.getElementById("usage").innerHTML = total + " mWh";
                 
-                logs = document.getElementById("log").innerHTML;
-                logs = logs + "<br>" + n[counter] + " - " + total + " mWh";
+                document.getElementById("log").innerHTML += "<br>" + n[counter] + " - " + total + " mWh";
 
                 if(counter==4){
                     counter=0;
