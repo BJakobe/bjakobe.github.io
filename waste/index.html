@@ -35,7 +35,7 @@
 
                 <br><hr><br>
 
-                <button id="unlock">Unlock Bin</button>
+                <button id="unlock" onclick="unlock()">Unlock Bin</button>
 
 
                 <!--
@@ -87,7 +87,7 @@
                     else{
                         switch1 = "Collect Now";
                         document.getElementById("bin1").src = "img/full.png";
-                        if(switcher==0 && switcher2 = 0){
+                        if(switcher==0 && switcher2==0){
                             cpf.request('["analogWrite", 9, 180]');
                             switcher = 1;
                             switcher2 = 1;
