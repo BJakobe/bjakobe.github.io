@@ -72,7 +72,7 @@
                 document.getElementById("bin2").src = "img/closed.png";
 
                 switch1 = cpf.get("d4");
-                switch2 = cpf.get("d5");
+//                switch2 = cpf.get("d5");
 
                 if(switch1==1){
                     switch1="Bin is Open";
@@ -111,7 +111,7 @@
                 //                }
 
                 document.getElementById("one").innerHTML = switch1;
-                document.getElementById("two").innerHTML = switch2;
+//                document.getElementById("two").innerHTML = switch2;
 
             }
             setTimeout(loop, 1000);
@@ -121,7 +121,10 @@
         function setup(){
             if(cpf)
 
-                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 3, "INPUT"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 5, "INPUT"], ["setPinMode", "digital", 9, "SERVO"]');
+                cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 9, "SERVO"]');
+            
+            //["setPinMode", "digital", 3, "INPUT"],
+            //, ["setPinMode", "digital", 5, "INPUT"]
 
             
         }
