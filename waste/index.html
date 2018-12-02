@@ -28,7 +28,7 @@
             <div id="analog" class="col-sm-6 col-xs-12">
 
                 <div class="analogclass">
-                    <h2>NON BIODEGRADABLE</h2>
+                    <h2>WASTE BIN 1</h2>
                     <img class="analogsensor" src="img/closed.png" id="bin1">
                     <span class="waste" id="one">none</span>
                 </div>
@@ -72,7 +72,7 @@
                 document.getElementById("bin2").src = "img/closed.png";
 
                 switch1 = cpf.get("d4");
-//                switch2 = cpf.get("d5");
+                //                switch2 = cpf.get("d5");
 
                 if(switch1==1){
                     switch1="Bin is Open";
@@ -91,6 +91,9 @@
                             cpf.request('["analogWrite", 9, 180]');
                             switcher = 1;
                             switcher2 = 1;
+                        }
+                        else{
+
                         }
                     }
                 }
@@ -111,7 +114,7 @@
                 //                }
 
                 document.getElementById("one").innerHTML = switch1;
-//                document.getElementById("two").innerHTML = switch2;
+                //                document.getElementById("two").innerHTML = switch2;
 
             }
             setTimeout(loop, 1000);
@@ -122,13 +125,13 @@
             if(cpf)
 
                 cpf.setPinMode('["resetPin"], ["setPinMode", "digital", 2, "INPUT"], ["setPinMode", "digital", 4, "INPUT"], ["setPinMode", "digital", 9, "SERVO"]');
-            
+
             //["setPinMode", "digital", 3, "INPUT"],
             //, ["setPinMode", "digital", 5, "INPUT"]
 
-            
+
         }
-        
+
         function unlock(){
             cpf.request('["analogWrite", 9, 90]');
             switcher = 0;
