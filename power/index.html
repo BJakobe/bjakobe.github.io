@@ -62,6 +62,8 @@
         
         var total = 0;
         var power = 0;
+        
+        var logs;
 
         setup();
         function loop() {
@@ -85,14 +87,16 @@
                 current[counter] = (raw-offset)*0.045;
                 current[counter] = Math.round(current[counter]*100)/100;
                 
-                power = current[counter]*6*(1000/720);
+                power = (current[counter])*6*(1000/720);
                 total = total + Math.abs(power);
 
                 document.getElementById("ca").innerHTML = current[counter] + " A";
                 document.getElementById("time").innerHTML = n[counter];
                 
                 document.getElementById("usage").innerHTML = total + " mWh";
-                document.getElementById("log").innerHTML = document.getElementById("log").innerHTML + "<br>" + n[counter] + " - " + total + " mWh";
+                
+                logs = document.getElementById("log").innerHTML;
+                logs = logs + "<br>" + n[counter] + " - " + total + " mWh";
 
                 if(counter==4){
                     counter=0;
