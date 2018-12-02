@@ -18,8 +18,8 @@
 
                 <canvas id="myChart" width="400" height="400"></canvas>
                 <br><h2 id="ca">0A</h2><p id="time">22:03:12</p><hr>
-                <h2 id="usage"></h2><p>consumed today (milliWatt hours)</p><hr>
-                <p id="log">log here</p>
+                <h2 id="usage"></h2><p>in total consumed today (milliWatt hours)</p><hr>
+                <h2>LOG</h2><p id="log">log here</p>
 
 
                 <!--
@@ -87,6 +87,7 @@
                 
                 power = (current[counter])*6*(1000/720);
                 total = total + Math.abs(power);
+                total = Math.round(total*100)/100;
 
                 document.getElementById("ca").innerHTML = current[counter] + " A";
                 document.getElementById("time").innerHTML = n[counter];
